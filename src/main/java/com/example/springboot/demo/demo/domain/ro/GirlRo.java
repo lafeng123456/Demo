@@ -2,6 +2,10 @@ package com.example.springboot.demo.demo.domain.ro;
 
 import java.io.Serializable;
 
+/**
+ * 查询返回类
+ * @author <a href="mailto:617095443@qq.com">zhuguofeng</a>
+ */
 public class GirlRo implements Serializable{
 
     /** 主键id */

@@ -3,6 +3,10 @@ package com.example.springboot.demo.demo.domain.bean;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * Redis缓存对象
+ * @author <a href="mailto:617095443@qq.com">zhuguofeng</a>
+ */
 public class RedisDto implements Serializable{
 
     /** key **/

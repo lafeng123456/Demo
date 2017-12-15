@@ -10,9 +10,14 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * dao实现类(暂不用，所以没有具体实现接口)
+ * @author <a href="mailto:617095443@qq.com">zhuguofeng</a>
+ */
 public class GirlDaoImpl{
 
     @Autowired
+    //Sql会话工厂
     private SqlSession sqlSession;
 
     public List<GirlRo> getAll(String sqlId, GirlSo girlSo){

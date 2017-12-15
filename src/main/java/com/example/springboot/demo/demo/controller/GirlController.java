@@ -12,6 +12,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * Controller
+ * @author <a href="mailto:617095443@qq.com">zhuguofeng</a>
+ */
 @RestController
 @RequestMapping("/girl")
 public class GirlController {
