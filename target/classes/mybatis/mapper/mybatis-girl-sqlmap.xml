@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.springboot.demo.demo.dao.GirlDao">
+    <resultMap id="girlRo" type="com.example.springboot.demo.demo.domain.ro.GirlRo" >
+        <id column="ID" property="id" />
+        <result column="age" property="age" />
+        <result column="cup_size" property="cupSize" />
+        <result column="money" property="money" />
+    </resultMap>
+
+    <insert id="create" parameterType="com.example.springboot.demo.demo.domain.bean.Girl" >
+        INSERT INTO
+        GIRL
+        (AGE, CUP_SIZE, MONEY)
+        VALUES
+        (#{age}, #{cupSize}, #{money})
+    </insert>
+
+
+    <update id="update" parameterType="com.example.springboot.demo.demo.domain.bean.Girl" >
+        UPDATE
+        GIRL
+        <set >
+            <if test="age != null" >
+                AGE = #{age},
+            </if>
+            <if test="cupSize != null and cupSize !=''" >
+                CUP_SIZE = #{cupSize},
+            </if>
+            <if test="money != null" >
+                MONEY = #{money}
+            </if>
+
+        </set>
+        where 1=1
+        AND ID = #{id}
+    </update>
+
+
+    <delete id="delete" parameterType="com.example.springboot.demo.demo.domain.bean.Girl">
+        DELETE
+
+        FROM
+        GIRL
+        WHERE   1=1
+        AND 	id = #{id}
+    </delete>
+
+    <select id="getOne" resultMap="girlRo" parameterType="com.example.springboot.demo.demo.domain.so.GirlSo" >
+        select
+        ID,AGE, CUP_SIZE, MONEY
+        FROM GIRL
+        where 1=1
+        <if test="id != null and id != ''">
+            AND		ID = #{id}
+        </if>
+    </select>
+
+    <select id="getAll" resultMap="girlRo" parameterType="com.example.springboot.demo.demo.domain.so.GirlSo" >
+        select
+        ID,AGE, CUP_SIZE, MONEY
+        FROM GIRL
+        where 1=1
+
+    </select>
+
+
+</mapper>

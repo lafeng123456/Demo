@@ -1,0 +1,53 @@
+spring:
+    datasource:
+        # 使用druid数据源
+        druid:
+            url: jdbc:mysql://127.0.0.1:3306/dbgirl
+            username: root
+            password: 123456
+            driver-class-name: com.mysql.jdbc.Driver
+            filters: stat,wall,log4j
+            maxActive: 300
+            initialSize: 5
+            maxWait: 60000
+            minIdle: 5
+            timeBetweenEvictionRunsMillis: 60000
+            minEvictableIdleTimeMillis: 300000
+            validationQuery: select 'x'
+            testWhileIdle: true
+            testOnBorrow: false
+            testOnReturn: false
+            poolPreparedStatements: true
+            maxOpenPreparedStatements: 20
+#            WebStatFilter:
+#              enabled: true #是否启用StatFilter默认值true
+#              urlPattern: /*
+#              exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
+#              StatViewServlet:
+#              enabled: true # 是否启用StatViewServlet默认值true
+#              urlPattern: /druid/*
+            #Spring监控AOP切入点，如x.y.z.service.*,配置多个英文逗号分隔
+            #aop-patterns:
+    redis:
+      #    服务器地址
+        host: 192.168.1.12
+      #    服务器连接端口
+        port: 6379
+      #    链接密码
+        password: zjtachao
+      #    链接池
+        pool:
+      #    最大连接数（负值表示没有限制）
+          max-active: 20
+      #      最大阻塞等待时间（负值表示没有限制）
+          max-wait: 1000
+      #      最大空闲链接
+          max-idle: 10
+      #      最小空闲链接
+          min-idle: 0
+      #    链接超时时间（毫秒）
+        timeout: 0
+
+mybatis:
+    config-location: classpath:mybatis/config/mybatis-config.xml
+    mapper-locations: classpath:mybatis/mapper/*.xml
